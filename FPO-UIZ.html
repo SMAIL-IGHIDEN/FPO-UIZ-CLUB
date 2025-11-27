@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FPO Ouarzazate Clubs</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  .video-bg-container {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* full screen height */
+  overflow: hidden;
+}
+
+#bgVideo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1;
+  transform: translate(-50%, -50%);
+  filter: brightness(0.6); /* dark overlay effect */
+}
+
+.video-overlay {
+  position: relative;
+  z-index: 2;
+  color: white;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  padding: 0 2rem;
+}
+
+.video-overlay h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.video-overlay p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.video-overlay .btn {
+  background: #FCA311;
+  color: #fff;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+:root {
+    --primary-color: #ffffff;
+    --secondary-color: #FCA311;
+    --accent-color: #000000;
+    --text-dark: #000000;
+    --bg-light: #000000;
+    --white: #000000;
+    --shadow: 0 10px 20px rgba(0,0,0,0.2);
+    --transition: all 0.4s ease;
+}
+body {margin:0;padding:0;box-sizing:border-box;font-family:'Poppins', sans-serif; background:var(--bg-light); color:var(--text-dark); line-height:1.6; display:flex; flex-direction:column; min-height:100vh;}
+header{background:var(--primary-color);color:var(--white);position:sticky;top:0;z-index:1000;box-shadow:0 5px 15px rgb(255, 255, 255);}
+.navbar{display:flex;justify-content:space-between;align-items:center;padding:1rem 5%;max-width:1200px;margin:0 auto;}
+.logo{font-size:2rem;font-weight:700;color:var(--secondary-color);text-decoration:none;display:flex;align-items:center;gap:10px;}
+.nav-links{list-style:none;display:flex;}
+.nav-links li{margin-left:2rem;}
+.nav-links a{color:var(--white);text-decoration:none;font-weight:600;transition:var(--transition);padding-bottom:5px;border-bottom:2px solid transparent;font-size:1.1rem;}
+.nav-links a:hover, .nav-links a.active{color:var(--secondary-color);border-bottom:2px solid var(--secondary-color);}
+.menu-toggle{display:none;font-size:1.8rem;cursor:pointer;color:var(--secondary-color);}
+main{flex:1;max-width:1400px;margin:0 auto;width:100%;padding:3rem 5%;}
+.page-section{display:none;animation:fadeIn 0.6s ease;}
+.page-section.active{display:block;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+.hero{background:linear-gradient(rgba(255, 255, 255, 0.8),rgba(13,27,42,0.8)),url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');background-size:cover;background-position:center;color:var(--white);padding:6rem 2rem;text-align:center;border-radius:15px;margin-bottom:3rem;box-shadow:var(--shadow);}
+.hero h1{font-size:3rem;font-weight:700;margin-bottom:1rem;letter-spacing:1px;}
+.hero p{font-size:1.4rem;margin-bottom:2rem;color:#eee;line-height:1.5;}
+.btn{background:var(--secondary-color);color:var(--primary-color);padding:1rem 2rem;text-decoration:none;border-radius:8px;font-weight:700;transition:var(--transition);border:none;cursor:pointer;font-size:1.1rem;box-shadow:0 5px 15px rgba(0,0,0,0.2);}
+.btn:hover{background-color:#e6a00a;transform:translateY(-3px);box-shadow:0 10px 25px rgba(0,0,0,0.3);}
+.section-title{text-align:center;margin-bottom:2.5rem;color:var(--primary-color);position:relative;font-family:'Montserrat', sans-serif;font-weight:700;font-size:2rem;}
+.section-title::after{content:'';position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:70px;height:4px;background:var(--secondary-color);border-radius:3px;}
+.clubs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2.5rem;margin-bottom:3rem;}
+.card{background:var(--white);border-radius:15px;overflow:hidden;box-shadow:var(--shadow);transition:var(--transition);display:flex;flex-direction:column;transform:translateY(0);}
+.card:hover{transform:translateY(-10px);box-shadow:0 15px 30px rgba(0,0,0,0.25);}
+.card-img{height:220px;width:100%;object-fit:cover;transition:transform 0.5s ease;}
+.card:hover .card-img{transform:scale(1.05);}
+.card-body{padding:1.8rem;display:flex;flex-direction:column;flex-grow:1;}
+.card-title{color:var(--primary-color);margin-bottom:.7rem;font-size:1.5rem;font-weight:700;}
+.card-text{color:#555;margin-bottom:1.5rem;flex-grow:1;font-size:1rem;line-height:1.5;}
+.card-btn{align-self:flex-start;background-color:transparent;color:var(--primary-color);border:2px solid var(--primary-color);padding:.7rem 1.2rem;border-radius:8px;cursor:pointer;transition:var(--transition);font-weight:600;font-size:1rem;}
+.card-btn:hover{background-color:var(--primary-color);color:var(--white);transform:translateY(-2px);}
+.search-container{max-width:650px;margin:0 auto 2rem auto;position:relative;}
+.search-input{width:100%;padding:1.2rem 1rem 1.2rem 3rem;border:2px solid #ddd;border-radius:50px;font-size:1.05rem;transition:var(--transition);}
+.search-input:focus{outline:none;border-color:var(--secondary-color);box-shadow:0 0 15px rgba(252,163,17,0.3);}
+.search-icon{position:absolute;left:1.2rem;top:50%;transform:translateY(-50%);color:#ffcc00;font-size:1.2rem;}
+footer{background:var(--primary-color);color:var(--white);text-align:center;padding:2.5rem;margin-top:auto;font-size:0.95rem;}
+.social-icons{margin-bottom:1rem;}
+.social-icons a{color:var(--white);font-size:1.7rem;margin:0 12px;transition:var(--transition);}
+.social-icons a:hover{color:var(--secondary-color);}
+.form-container{max-width:700px;margin:0 auto;background:var(--white);padding:2.5rem;border-radius:15px;box-shadow:var(--shadow);}
+.form-group label{font-weight:600;color:var(--primary-color);margin-bottom:.5rem;display:block;font-size:1.05rem;}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:1rem;border:1px solid #ccc;border-radius:8px;font-size:1rem;transition:var(--transition);}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--secondary-color);box-shadow:0 0 10px rgba(255, 159, 4, 0.2);}
+.alert{padding:1rem;margin-bottom:1rem;border-radius:8px;display:none;}
+.alert-success{background-color:#d4edda;color:#155724;border:1px solid #c3e6cb;}
+.lang-switch button{background-color:var(--secondary-color);color:var(--primary-color);border:none;padding:5px 8px;margin-left:5px;font-weight:bold;cursor:pointer;border-radius:3px;transition:0.2s;}
+.lang-switch button:hover{background-color:#e6a00a;transform:scale(1.05);}
+body[data-lang="AR"]{direction:rtl;}
+@media(max-width:768px){.nav-links{position:absolute;right:0;height:92vh;top:8vh;background-color:var(--primary-color);display:flex;flex-direction:column;align-items:center;width:60%;transform:translateX(100%);transition:transform 0.4s ease-in;padding-top:2rem;}.nav-links li{margin:2rem 0;}.nav-links.nav-active{transform:translateX(0%);}.menu-toggle{display:block;}}
+
+.news-container {
+  background: linear-gradient(90deg, #003366, #00509e);
+  color: #fff;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
+
+#news-list {
+  list-style: none;
+  display: flex;
+  animation: scrollNews 25s linear infinite;
+  gap: 3rem;
+}
+
+#news-list li {
+  white-space: nowrap;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  gap: 0.5rem;
+}
+
+#news-list li i {
+  color: #ffcc00;
+  font-size: 1.2rem;
+}
+
+/* توقف الحركة عند المرور */
+.news-container:hover #news-list {
+  animation-play-state: paused;
+}
+
+@keyframes scrollNews {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+iframe {
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.hero-overlay {
+  position: relative;
+  z-index: 2; /* above video */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: #fff;
+  text-align: center;
+  background: rgba(0,0,0,0.35); /* optional: dark overlay for readability */
+  padding: 0 2rem;
+}
+
+.hero-overlay h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero-overlay p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.hero-overlay .btn {
+  font-size: 1.2rem;
+  padding: 0.8rem 2rem;
+}
+
+
+</style>
+
+</head>
+<body data-lang="ENG">
+
+
+<header>
+<nav class="navbar">
+<a href="#" onclick="navigate('home')" class="logo"><i class="fas fa-graduation-cap"></i> FPO Clubs</a>
+<ul class="nav-links" id="nav-links">
+<li><a href="#" onclick="navigate('home')" id="link-home" class="active" data-text-key="navHome">Home</a></li>
+<li><a href="#" onclick="navigate('clubs')" id="link-clubs" data-text-key="navClubs">Clubs</a></li>
+<li><a href="#" onclick="navigate('club-info')" id="link-club-info" data-text-key="navInfo">Club Info</a></li>
+<li><a href="#" onclick="navigate('news')" id="link-news" data-text-key="navNews">News</a></li>
+
+<li><a href="#" onclick="navigate('contact')" id="link-contact" data-text-key="navContact">Contact</a></li>
+</ul>
+<div class="lang-switch">
+<button onclick="switchLang('AR')">AR</button>
+<button onclick="switchLang('FR')">FR</button>
+<button onclick="switchLang('ENG')">EN</button>
+<button onclick="switchLang('ESP')">ES</button>
+</div>
+<div class="menu-toggle" id="mobile-menu"><i class="fas fa-bars"></i></div>
+</nav>
+
+</header>
+
+
+<main>
+<section id="home" class="page-section active">
+<div class="hero">
+<h1 data-text-key="heroTitle">Discover Your Passion at FPO Ouarzazate</h1>
+<p data-text-key="heroSubtitle">This is your moment. Explore, learn, compete, create  and become the best version of yourself with clubs that ignite your ambition!                                                                                               </p>
+<button onclick="navigate('clubs')" class="btn" data-text-key="heroButton">Explore Clubs</button>
+</div>
+<h2 class="section-title" data-text-key="featuredClubs">Featured Clubs</h2>
+<div id="featured-clubs-container" class="clubs-grid"></div>
+</section>
+
+<section id="clubs" class="page-section">
+<h2 class="section-title" data-text-key="allClubs">All Clubs</h2>
+<div class="search-container">
+<i class="fas fa-search search-icon"></i>
+<input type="text" id="search-input" class="search-input" placeholder="Search for a club..." data-placeholder-key="searchPlaceholder">
+</div>
+<div id="all-clubs-container" class="clubs-grid"></div>
+</section>
+
+<section id="club-info" class="page-section">
+<h2 class="section-title" data-text-key="clubDetailsTitle">Club Details</h2>
+<div class="form-container" id="clubDetails">
+<p data-text-key="clubDetailsDefault">Select a club from Home or All Clubs to see full info.</p>
+</div>
+
+
+</section>
+
+<section id="contact" class="page-section">
+<h2 class="section-title" data-text-key="contactTitle">Contact Us</h2>
+<div class="form-container">
+<div id="contact-alert" class="alert alert-success" data-text-key="contactSuccess">Message sent successfully!</div>
+<form id="contact-form">
+<div class="form-group"><label for="contact-name" data-text-key="contactName">Name</label><input type="text" id="contact-name" required></div>
+<div class="form-group"><label for="contact-email" data-text-key="contactEmail">Email</label><input type="email" id="contact-email" required></div>
+<div class="form-group"><label for="contact-message" data-text-key="contactMessage">Message</label><textarea id="contact-message" rows="5" required></textarea></div>
+<button type="submit" class="btn" style="width:100%;" data-text-key="contactButton">Send Message</button>
+</form>
+</div>
+
+</section>
+<section id="news" class="page-section">
+  <h2 class="section-title">Latest News & Updates</h2>
+  <div class="news-container">
+    <ul id="news-list">
+      <li><i class="fas fa-bullhorn"></i> Welcome to FPO Ouarzazate Clubs! Join your favorite club today.</li>
+      <li><i class="fas fa-robot"></i> Robotics & AI Club won first place in the national competition!</li>
+      <li><i class="fas fa-lightbulb"></i> Entrepreneurship Club: Startup Pitch event this Friday at 3 PM.</li>
+      <li><i class="fas fa-camera"></i> Photography Club: New exhibition of student works opens next week.</li>
+      <li><i class="fas fa-futbol"></i> Sports Union: Annual inter-club football tournament registration is open.</li>
+    </ul>
+  </div>
+</section>
+
+
+</main>
+<!-- Background Color Switcher -->
+<div style="position:fixed; bottom:20px; right:20px; z-index:999;">
+  <button id="bgColorBtn" style="
+    padding:10px 15px;
+    border:none;
+    border-radius:8px;
+    background:#FCA311;
+    color:rgb(0, 0, 0);
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 4px 12px rgba(0,0,0,0.3);
+    transition:0.3s;
+  ">Change Background</button>
+</div>
+
+
+
+<footer>
+    <p onclick="navigate('contact')" style="cursor:pointer; color:#FCA311; font-weight:bold;">
+     Connect with us
+    </p>
+
+
+    <div class="social-icons">
+
+        <!-- Instagram -->
+        <a href="https://instagram.com/YOUR_USERNAME" target="_blank">
+            <img src="/home/oem/Desktop/FPO-UIZ.CLUBS/Icons/instagram.png">
+        </a>
+
+        <a href="https://facebook.com/https://www.facebook.com/people/FPO-UIZ-CLUB/61584309031937/" target="_blank">
+            <img src="/home/oem/Desktop/FPO-UIZ.CLUBS/Icons/facebook.png">
+        </a>
+
+        <!-- TikTok -->
+        
+        </a>
+        <!-- WhatsApp Group Icon -->
+        <a href="https://chat.whatsapp.com/https://chat.whatsapp.com/Fs4lDJY65sn2gGf44JK0xb?mode=hqrt2" target="_blank">
+            <img src="/home/oem/Desktop/FPO-UIZ.CLUBS/Icons/whatsapp.png">
+
+        </a>
+        <a href="https://t.me/YOUR_USERNAME" target="_blank" class="telegram"> 
+              <img src="/home/oem/Desktop/FPO-UIZ.CLUBS/Icons/telegram.png">
+        </a>
+        <!-- Gmail Icon -->
+        <a href="mailto:fpo.uiz.clubs@gmail.com" target="_blank">
+           <img src="/home/oem/Desktop/FPO-UIZ.CLUBS/Icons/gmail.png" alt="Gmail" style="width:32px; height:32px;">
+        </a>
+
+
+    </div>
+      <p class="developer-credit">
+       Developed by <a href="https://www.linkedin.com/https://www.linkedin.com/in/smail-ighiden-151867395/" target="_blank" style="color:#FCA311; text-decoration:none;"><h3>Smail Ighiden</h3></a>
+      </p>    <p>&copy; 2025 FPO Ouarzazate. All Rights Reserved.</p>
+      <!-- 3D Map -->
+        <div style="width:100%; height:350px; margin-top:20px; border-radius:12px; overflow:hidden;">
+         <iframe
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13171.894348751385!2d-6.912864!3d30.918755!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdbc8e1be0e04e4f%3A0x597bfb6f12e72615!2sOFPPT%20Ouarzazate!5e1!3m2!1sen!2sma!4v1703333333333!5m2!1sen!2sma"
+        width="100%"
+        height="100%"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+</div>
+<!-- 3D Map for FPO Ouarzazate -->
+<div style="
+  width:100%; 
+  margin-top:20px; 
+  border-radius:16px; 
+  overflow:hidden; 
+  box-shadow:0 8px 20px rgba(0,0,0,0.25);
+">
+
+  <!-- Map Container -->
+  <div style="
+    width:100%; 
+    height:420px; 
+    border-radius:16px; 
+    overflow:hidden;
+  ">
+  <div style="text-align:center; margin-top:12px;">
+    <a href="https://www.google.com/maps/place/La+Facult%C3%A9+Polydisciplinaire+de+Ouarzazate/@30.9448178,-6.9320042,6990m/data=!3m1!1e3"
+       target="_blank"
+       style="display:inline-block; padding:10px 20px; background:#FCA311; color:white; font-weight:bold; 
+              border-radius:8px; text-decoration:none; font-size:16px; transition:0.3s;">
+      Open in Google Maps
+    </a>
+  </div>
+
+    
+  </div>
+
+  
+
+</div>
+
+
+</div>
+
+
+      
+</footer>
+
+
+<script>
+// ========= Translations =========
+const translations = {
+ENG:{navHome:"Home",navClubs:"Clubs",navInfo:"Club Info",navContact:"Contact",heroTitle:"Discover Your Passion at FPO Ouarzazate",heroSubtitle:"Join clubs, improve skills, and make lifelong friends!",heroButton:"Explore Clubs",featuredClubs:"Featured Clubs",allClubs:"All Clubs",clubDetailsTitle:"Club Details",clubDetailsDefault:"Select a club from Home or All Clubs to see full info.",contactTitle:"Contact Us",contactName:"Name",contactEmail:"Email",contactMessage:"Message",contactButton:"Send Message",contactSuccess:"Message sent successfully!",searchPlaceholder:"Search for a club..."},
+FR:{navHome:"Accueil",navClubs:"Clubs",navInfo:"Info Club",navContact:"Contact",heroTitle:"Découvrez votre passion à FPO Ouarzazate",heroSubtitle:"Rejoignez des clubs, améliorez vos compétences et faites des amis pour la vie!",heroButton:"Explorer les Clubs",featuredClubs:"Clubs en Vedette",allClubs:"Tous les Clubs",clubDetailsTitle:"Détails du Club",clubDetailsDefault:"Sélectionnez un club depuis l'accueil ou tous les clubs pour voir les informations complètes.",contactTitle:"Contactez-nous",contactName:"Nom",contactEmail:"Email",contactMessage:"Message",contactButton:"Envoyer",contactSuccess:"Message envoyé avec succès!",searchPlaceholder:"Rechercher un club..."},
+AR:{navHome:"الرئيسية",navClubs:"الأندية",navInfo:"معلومات النادي",navContact:"اتصل بنا",heroTitle:"اكتشف شغفك في FPO ورزازات",heroSubtitle:"انضم إلى الأندية، طور مهاراتك، وكون صداقات مدى الحياة!",heroButton:"استكشاف الأندية",featuredClubs:"الأندية المميزة",allClubs:"جميع الأندية",clubDetailsTitle:"تفاصيل النادي",clubDetailsDefault:"اختر ناديًا من الصفحة الرئيسية أو جميع الأندية لرؤية التفاصيل الكاملة.",contactTitle:"اتصل بنا",contactName:"الاسم",contactEmail:"البريد الإلكتروني",contactMessage:"الرسالة",contactButton:"إرسال",contactSuccess:"تم إرسال الرسالة بنجاح!",searchPlaceholder:"ابحث عن نادي..."},
+ESP:{navHome:"Inicio",navClubs:"Clubes",navInfo:"Info del Club",navContact:"Contacto",heroTitle:"Descubre tu pasión en FPO Ouarzazate",heroSubtitle:"Únete a clubes, mejora habilidades y haz amigos para toda la vida!",heroButton:"Explorar Clubes",featuredClubs:"Clubes Destacados",allClubs:"Todos los Clubes",clubDetailsTitle:"Detalles del Club",clubDetailsDefault:"Selecciona un club desde Inicio o Todos los Clubes para ver la información completa.",contactTitle:"Contáctanos",contactName:"Nombre",contactEmail:"Correo",contactMessage:"Mensaje",contactButton:"Enviar",contactSuccess:"¡Mensaje enviado con éxito!",searchPlaceholder:"Buscar un club..."}
+};
+
+// ========= Club Data =========
+// Add all 12 clubs fully here as objects with name, president, description, objectives[], teams[], activities[], image, featured
+const clubsData = [
+{
+  name: " Technology and AI Club",
+  president: "Mr. Reda Alami",
+  description: "Develop advanced robotics, electronics, and AI solutions.",
+  objectives: ["Robotics design", "Electronics projects", "AI innovation", "Technical challenges", "Teamwork", "Leadership", "Problem-solving", "Innovation", "Workshops", "Collaboration", "Skill development", "Project planning", "Technical skills", "Prototype building", "Experimentation"],
+  teams: ["Robotics Team", "Electronics Team", "AI Team"],
+  activities: ["Robotics building", "Electronics labs", "AI coding workshops", "Hackathons", "Seminars", "Prototype testing", "Collaborative projects", "Documentation", "Competitions", "Exhibitions", "Problem-solving sessions", "Skill-building", "Guest lectures", "Workshops", "Team coding", "Project development", "Technical exhibitions", "Innovation challenges", "Mentorship programs", "Awards ceremonies"],
+  image: "/home/oem/Desktop/FPO-UIZ.CLUBS/img/aii.jpeg",
+  featured: true
+},
+
+{
+  name: "Environmental & Sustainability Club",
+  president: "Ms. Sara Bennis",
+  description: "Promotes eco-friendly practices and environmental awareness.",
+  objectives: ["Tree planting", "Recycling campaigns", "Sustainability workshops", "Awareness campaigns"],
+  teams: ["Recycling Team", "Gardening Team", "Awareness Team"],
+  activities: ["Tree planting events", "Eco-workshops", "Community cleanups", "Educational seminars", "Recycling drives", "Sustainability challenges"],
+  image: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=500",
+  featured: true
+},
+
+{
+  name: "Debate Club",
+  president: "Mr. Karim Belhaj",
+  description: "Develop public speaking and critical thinking skills.",
+  objectives: ["Debating", "Public speaking", "Research", "Teamwork", "Competition", "Reasoning"],
+  teams: ["Policy Debate", "Parliamentary Debate", "Research Team"],
+  activities: ["Debate competitions", "Workshops", "Mock debates", "Tournaments", "Team research", "Guest lectures"],
+  image: "/home/oem/Desktop/FPO-UIZ.CLUBS/img/Deba.jpeg",
+  featured: true
+},
+{
+  name: "Coding & Programming Club",
+  president: "Ms. Lina Fassi",
+  description: "Learn programming, web, and app development in a collaborative environment.",
+  objectives: ["Learn programming languages", "Build apps", "Team coding", "Algorithm challenges"],
+  teams: ["Web Dev Team", "App Dev Team", "AI/ML Team"],
+  activities: ["Hackathons", "Coding challenges", "Workshops", "Project development", "Mentorship sessions"],
+  image: "/home/oem/Desktop/FPO-UIZ.CLUBS/img/coding.jpeg",
+  featured: true
+},
+{
+  name: "Video Editing Club",
+  president: "Ms. Lina Fassi",
+  description: "Learn the art of video editing, post-production, and creating engaging content with hands-on practice.",
+  objectives: [
+    "Master video editing software",
+    "Learn color grading techniques",
+    "Develop storytelling skills",
+    "Create content for social media platforms",
+    "Team collaboration",
+    "Produce short films",
+    "Implement visual effects",
+    "Sound editing and mixing",
+    "Storyboard planning",
+    "Time management in projects",
+    "Enhance creativity",
+    "Learn motion graphics",
+    "Editing workflow optimization",
+    "Participate in competitions",
+    "Learn video compression and formats"
+  ],
+  teams: ["Editing Team", "Post-Production Team", "Content Creation Team"],
+  activities: [
+    "Premiere Pro workshops",
+    "After Effects tutorials",
+    "Short film production",
+    "Content creation for YouTube",
+    "TikTok video projects",
+    "Collaborative editing sessions",
+    "Editing competitions",
+    "Storyboarding workshops",
+    "Sound design practice",
+    "Color grading projects",
+    "Motion graphics challenges",
+    "Vlogging sessions",
+    "Tutorial creation",
+    "Mentorship programs",
+    "Film festival submissions",
+    "Portfolio building",
+    "Live editing demos",
+    "Video production planning",
+    "Special effects experiments",
+    "Project presentation sessions"
+  ],
+  image: "/home/oem/Desktop/FPO-UIZ.CLUBS/img/Editing 💻.jpeg",
+  featured: true
+},
+{
+  name: "Gaming Club",
+  president: "Mr. Adam El Idrissi",
+  description: "Explore gaming strategies, eSports, streaming, and competitive gameplay in a collaborative and fun environment.",
+  objectives: [
+    "Develop gaming skills",
+    "Team collaboration in competitive games",
+    "Participate in tournaments",
+    "Master game mechanics",
+    "Streaming and live gameplay",
+    "Analyze gaming strategies",
+    "Content creation for gaming platforms",
+    "Community building",
+    "Learn eSports techniques",
+    "Time management in gaming",
+    "Improve reaction and reflex skills",
+    "Learn teamwork and communication",
+    "Organize gaming events",
+    "Participate in online challenges",
+    "Mentorship in gaming strategies"
+  ],
+  teams: ["eSports Team", "Streaming Team", "Strategy & Analysis Team"],
+  activities: [
+    "eSports tournaments",
+    "Team practice sessions",
+    "Gaming workshops",
+    "Streaming live events",
+    "Strategy and tactics sessions",
+    "Game analysis and reviews",
+    "Content creation for Twitch & YouTube",
+    "Competitive gaming leagues",
+    "Online multiplayer events",
+    "Collaborative gameplay challenges",
+    "Mentorship programs",
+    "Leaderboards & ranking events",
+    "Game nights and competitions",
+    "Gaming tutorials and tips",
+    "Community engagement events",
+    "Beta testing new games",
+    "Strategy brainstorming sessions",
+    "Cosplay and gaming events",
+    "Challenge rewards & recognition",
+    "Team-building gaming activities"
+  ],
+  image: "/home/oem/Desktop/FPO-UIZ.CLUBS/img/Game.jpeg",
+  featured: true
+},
+
+
+{
+  name: "Photography & Media Club",
+  president: "Mr. Youssef Oulad",
+  description: "Capture, edit, and showcase visual media across multiple platforms.",
+  objectives: ["Photography skills", "Videography", "Editing", "Media campaigns"],
+  teams: ["Photo Team", "Video Team", "Social Media Team"],
+  activities: ["Photo walks", "Video projects", "Editing workshops", "Exhibitions", "Social media campaigns"],
+  image: "/home/oem/Desktop/FPO-UIZ.CLUBS/img/photography.jpeg",
+  featured: false
+},
+{
+  name: "Sports & Fitness Club",
+  president: "Ms. Amal Reda",
+  description: "Encourage physical fitness, sportsmanship, and healthy lifestyle.",
+  objectives: ["Team sports", "Fitness training", "Health awareness", "Competitions"],
+  teams: ["Football Team", "Basketball Team", "Athletics Team"],
+  activities: ["Matches", "Fitness sessions", "Sports tournaments", "Outdoor activities", "Health workshops"],
+  image: "/home/oem/Desktop/FPO-UIZ.CLUBS/img/HUSA.jpg",
+  featured: false
+},
+{
+  name: "Arts & Creativity Club",
+  president: "Mr. Samir Khelifi",
+  description: "Explore painting, sculpture, music, and creative expression.",
+  objectives: ["Art exhibitions", "Workshops", "Creative projects", "Collaboration"],
+  teams: ["Painting Team", "Sculpture Team", "Music Team"],
+  activities: ["Workshops", "Exhibitions", "Art competitions", "Collaboration projects", "Guest artists sessions"],
+  image: "/home/oem/Desktop/FPO-UIZ.CLUBS/img/aii.jpeg",
+  featured: false
+},
+{
+  name: "Entrepreneurship & Innovation Club",
+  president: "Ms. Nadia El Idrissi",
+  description: "Develop business ideas, startups, and entrepreneurial skills.",
+  objectives: ["Startup development", "Pitching", "Business planning", "Innovation challenges"],
+  teams: ["Startup Team", "Innovation Team", "Marketing Team"],
+  activities: ["Workshops", "Pitch events", "Mentorship", "Networking events", "Business competitions"],
+  image: "/home/oem/Desktop/FPO-UIZ.CLUBS/img/123.jpeg",
+  featured: true
+},
+{
+  name: "Music & Performing Arts Club",
+  president: "Mr. Bilal El Housni",
+  description: "Develop musical talent and performance skills for live shows and events.",
+  objectives: ["Music practice", "Performance", "Team coordination", "Event planning"],
+  teams: ["Choir Team", "Band Team", "Drama Team"],
+  activities: ["Rehearsals", "Concerts", "Performances", "Workshops", "Competitions"],
+  image: "/home/oem/Desktop/FPO-UIZ.CLUBS/img/gnawa.jpeg",
+  featured: false
+},
+{
+  name: "Volunteer & Community Service Club",
+  president: "Ms. Hiba Bouziane",
+  description: "Promote social responsibility through volunteer work and community service.",
+  objectives: ["Community projects", "Volunteerism", "Social awareness", "Collaboration"],
+  teams: ["Community Team", "Charity Team", "Outreach Team"],
+  activities: ["Fundraising", "Community events", "Awareness campaigns", "Workshops", "Volunteer projects"],
+  image: "/home/oem/Desktop/FPO-UIZ.CLUBS/img/Science & Research Club.jpeg",
+  featured: true
+},
+{
+  name: "Science & Research Club",
+  president: "Mr. Hicham Lahlou",
+  description: "Encourage scientific exploration, research projects, and innovation.",
+  objectives: ["Research projects", "Experiments", "Scientific challenges", "Teamwork"],
+  teams: ["Physics Team", "Chemistry Team", "Biology Team"],
+  activities: ["Lab sessions", "Research projects", "Workshops", "Competitions", "Science fairs"],
+  image: "/home/oem/Desktop/FPO-UIZ.CLUBS/img/sice clubs.jpeg",
+  featured: true
+},
+{
+  name: "Literature & Writing Club",
+  president: "Ms. Fatima Zahra",
+  description: "Develop creative writing, literary analysis, and storytelling skills.",
+  objectives: ["Creative writing", "Book discussions", "Storytelling", "Editing skills"],
+  teams: ["Poetry Team", "Story Team", "Journal Team"],
+  activities: ["Writing workshops", "Readings", "Competitions", "Publication projects", "Discussion circles"],
+  image: "/home/oem/Desktop/FPO-UIZ.CLUBS/img/Literature & Writing Club.jpeg",
+  featured: false
+}
+];
+
+
+// ========= DOM Elements 
+const pages = document.querySelectorAll('.page-section');
+const navLinks = document.querySelectorAll('.nav-links a');
+const featuredContainer = document.getElementById('featured-clubs-container');
+const allClubsContainer = document.getElementById('all-clubs-container');
+const searchInput = document.getElementById('search-input');
+const mobileMenu = document.getElementById('mobile-menu');
+const navList = document.getElementById('nav-links');
+const clubDetails = document.getElementById('clubDetails');
+
+// ========= Navigation =========
+function navigate(pageId){
+pages.forEach(p=>p.classList.remove('active'));
+navLinks.forEach(l=>l.classList.remove('active'));
+document.getElementById(pageId).classList.add('active');
+const activeLink = document.getElementById(`link-${pageId}`);
+if(activeLink) activeLink.classList.add('active');
+navList.classList.remove('nav-active');
+window.scrollTo(0,0);
+}
+mobileMenu.addEventListener('click',()=>{navList.classList.toggle('nav-active');});
+function navigate(pageId) {
+  pages.forEach(p => p.classList.remove('active'));
+  navLinks.forEach(l => l.classList.remove('active'));
+  document.getElementById(pageId).classList.add('active');
+  
+  const activeLink = document.getElementById(`link-${pageId}`);
+  if(activeLink) activeLink.classList.add('active');
+  
+  const videoBg = document.getElementById('homeVideoBg');
+
+
+
+
+}
+
+
+
+
+// ========= Render Clubs =========
+function renderClubs(filter=''){
+featuredContainer.innerHTML=''; allClubsContainer.innerHTML='';
+const f = filter.toLowerCase();
+clubsData.forEach(club=>{
+const matches = club.name.toLowerCase().includes(f);
+const card = `<div class="card">
+<img src="${club.image}" class="card-img">
+<div class="card-body">
+<h3 class="card-title">${club.name}</h3>
+<p class="card-text">${club.description}</p>
+<button onclick="showClubInfo('${club.name}')" class="card-btn" data-text-key="moreInfo">More Info</button>
+</div>
+</div>`;
+if(club.featured && filter==='') featuredContainer.innerHTML+=card;
+if(matches) allClubsContainer.innerHTML+=card;
+});
+}
+const bgButton = document.getElementById('bgColorBtn');
+const colors = ["#f9fafb", "#003366", "#F0E68C", "#e6f7ff", "#ffe6f0", "#FCA311"];
+let colorIndex = 0;
+
+bgButton.addEventListener('click', () => {
+  // Cycle through colors
+  document.body.style.backgroundColor = colors[colorIndex];
+  colorIndex = (colorIndex + 1) % colors.length;
+});
+
+
+// ========= Show Club Info =========
+function showClubInfo(name) {
+  const club = clubsData.find(c => c.name === name);
+  if(!club) return;
+
+  const clubDetails = document.getElementById('clubDetails');
+  clubDetails.innerHTML = `
+    <div style="
+      max-width:900px;
+      margin:20px auto;
+      padding:25px;
+      border-radius:20px;
+      background:rgba(255,255,255,0.08);
+      backdrop-filter:blur(18px);
+      box-shadow:0 20px 50px rgba(0,0,0,0.35);
+      border:1px solid rgba(255,255,255,0.15);
+      color:white;
+      line-height:1.75;
+    ">
+      <h2 style="text-align:center; color:#FCA311;">${club.name}</h2>
+      <p style="text-align:center; margin-bottom:20px;">${club.description}</p>
+      <img src="${club.image}" style="width:100%; height:300px; object-fit:cover; border-radius:12px; margin-bottom:20px;">
+      <h3>President</h3>
+      <p>${club.president}</p>
+      <h3>Objectives</h3>
+      <ul>${club.objectives.map(o => `<li>${o}</li>`).join('')}</ul>
+      <h3>Teams</h3>
+      <ul>${club.teams.map(t => `<li>${t}</li>`).join('')}</ul>
+      <h3>Activities</h3>
+      <ul>${club.activities.map(a => `<li>${a}</li>`).join('')}</ul>
+    </div>
+  `;
+
+  navigate('club-info');
+}
+
+// ========= Switch Language ==========
+function switchLang(lang){
+document.body.setAttribute('data-lang', lang);
+document.querySelectorAll('[data-text-key]').forEach(el=>{
+const key = el.getAttribute('data-text-key');
+if(translations[lang][key]) el.textContent = translations[lang][key];
+});
+document.querySelectorAll('[data-placeholder-key]').forEach(el=>{
+const key = el.getAttribute('data-placeholder-key');
+if(translations[lang][key]) el.placeholder = translations[lang][key];
+});
+}
+
+// ========= Init =========
+document.addEventListener('DOMContentLoaded',()=>{
+renderClubs();
+switchLang('ENG');
+});
+
+const newsItems = [
+  { icon: "fas fa-bullhorn", text: "Welcome to FPO Ouarzazate Clubs! Join your favorite club today." },
+  { icon: "fas fa-robot", text: "Robotics & AI Club won first place in the national competition!" },
+  { icon: "fas fa-lightbulb", text: "Entrepreneurship Club: Startup Pitch event this Friday at 3 PM." },
+  { icon: "fas fa-camera", text: "Photography Club: New exhibition of student works opens next week." },
+  { icon: "fas fa-futbol", text: "Sports Union: Annual inter-club football tournament registration is open." }
+];
+
+const newsList = document.getElementById('news-list');
+if(newsList){
+  newsList.innerHTML = newsItems.map(item => `<li><i class="${item.icon}"></i> ${item.text}</li>`).join('');
+}
+
+</script>
+</body>
+</html>

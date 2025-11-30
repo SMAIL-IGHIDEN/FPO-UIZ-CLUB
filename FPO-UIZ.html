@@ -10,7 +10,7 @@
   .video-bg-container {
   position: relative;
   width: 100%;
-  height: 100vh; /* full screen height */
+  height: 100vh; 
   overflow: hidden;
 }
 
@@ -24,7 +24,7 @@
   height: auto;
   z-index: -1;
   transform: translate(-50%, -50%);
-  filter: brightness(0.6); /* dark overlay effect */
+  filter: brightness(0.6);
 }
 
 .video-overlay {
@@ -147,7 +147,6 @@ body[data-lang="AR"]{direction:rtl;}
   font-size: 1.2rem;
 }
 
-/* توقف الحركة عند المرور */
 .news-container:hover #news-list {
   animation-play-state: paused;
 }
@@ -170,7 +169,7 @@ iframe {
   height: 100%;
   color: #fff;
   text-align: center;
-  background: rgba(0,0,0,0.35); /* optional: dark overlay for readability */
+  background: rgba(0,0,0,0.35); 
   padding: 0 2rem;
 }
 
@@ -301,7 +300,6 @@ iframe {
 
     <div class="social-icons">
 
-        <!-- Instagram -->
         <a href="https://instagram.com/YOUR_USERNAME" target="_blank">
             <img src="/home/oem/Desktop/FPO-UIZ.CLUBS/Icons/instagram.png">
         </a>
@@ -310,19 +308,15 @@ iframe {
             <img src="/home/oem/Desktop/FPO-UIZ.CLUBS/Icons/facebook.png">
         </a>
 
-        <!-- TikTok -->
         
         </a>
-        <!-- WhatsApp Group Icon -->
         <a href="https://chat.whatsapp.com/https://chat.whatsapp.com/Fs4lDJY65sn2gGf44JK0xb?mode=hqrt2" target="_blank">
             <img src="/home/oem/Desktop/FPO-UIZ.CLUBS/Icons/whatsapp.png">
 
         </a>
         <a href="https://t.me/YOUR_USERNAME" target="_blank" class="telegram"> 
               <img src="/home/oem/Desktop/FPO-UIZ.CLUBS/Icons/telegram.png">
-        </a>
-        <!-- Gmail Icon -->
-        <a href="mailto:fpo.uiz.clubs@gmail.com" target="_blank">
+        </a>        <a href="mailto:fpo.uiz.clubs@gmail.com" target="_blank">
            <img src="/home/oem/Desktop/FPO-UIZ.CLUBS/Icons/gmail.png" alt="Gmail" style="width:32px; height:32px;">
         </a>
 
@@ -331,7 +325,6 @@ iframe {
       <p class="developer-credit">
        Developed by <a href="https://www.linkedin.com/https://www.linkedin.com/in/smail-ighiden-151867395/" target="_blank" style="color:#FCA311; text-decoration:none;"><h3>Smail Ighiden</h3></a>
       </p>    <p>&copy; 2025 FPO Ouarzazate. All Rights Reserved.</p>
-      <!-- 3D Map -->
         <div style="width:100%; height:350px; margin-top:20px; border-radius:12px; overflow:hidden;">
          <iframe
         src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13171.894348751385!2d-6.912864!3d30.918755!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdbc8e1be0e04e4f%3A0x597bfb6f12e72615!2sOFPPT%20Ouarzazate!5e1!3m2!1sen!2sma!4v1703333333333!5m2!1sen!2sma"
@@ -343,7 +336,6 @@ iframe {
         referrerpolicy="no-referrer-when-downgrade">
     </iframe>
 </div>
-<!-- 3D Map for FPO Ouarzazate -->
 <div style="
   width:100%; 
   margin-top:20px; 
@@ -352,7 +344,6 @@ iframe {
   box-shadow:0 8px 20px rgba(0,0,0,0.25);
 ">
 
-  <!-- Map Container -->
   <div style="
     width:100%; 
     height:420px; 
@@ -384,7 +375,6 @@ iframe {
 
 
 <script>
-// ========= Translations =========
 const translations = {
 ENG:{navHome:"Home",navClubs:"Clubs",navInfo:"Club Info",navContact:"Contact",heroTitle:"Discover Your Passion at FPO Ouarzazate",heroSubtitle:"Join clubs, improve skills, and make lifelong friends!",heroButton:"Explore Clubs",featuredClubs:"Featured Clubs",allClubs:"All Clubs",clubDetailsTitle:"Club Details",clubDetailsDefault:"Select a club from Home or All Clubs to see full info.",contactTitle:"Contact Us",contactName:"Name",contactEmail:"Email",contactMessage:"Message",contactButton:"Send Message",contactSuccess:"Message sent successfully!",searchPlaceholder:"Search for a club..."},
 FR:{navHome:"Accueil",navClubs:"Clubs",navInfo:"Info Club",navContact:"Contact",heroTitle:"Découvrez votre passion à FPO Ouarzazate",heroSubtitle:"Rejoignez des clubs, améliorez vos compétences et faites des amis pour la vie!",heroButton:"Explorer les Clubs",featuredClubs:"Clubs en Vedette",allClubs:"Tous les Clubs",clubDetailsTitle:"Détails du Club",clubDetailsDefault:"Sélectionnez un club depuis l'accueil ou tous les clubs pour voir les informations complètes.",contactTitle:"Contactez-nous",contactName:"Nom",contactEmail:"Email",contactMessage:"Message",contactButton:"Envoyer",contactSuccess:"Message envoyé avec succès!",searchPlaceholder:"Rechercher un club..."},
@@ -392,8 +382,7 @@ AR:{navHome:"الرئيسية",navClubs:"الأندية",navInfo:"معلومات
 ESP:{navHome:"Inicio",navClubs:"Clubes",navInfo:"Info del Club",navContact:"Contacto",heroTitle:"Descubre tu pasión en FPO Ouarzazate",heroSubtitle:"Únete a clubes, mejora habilidades y haz amigos para toda la vida!",heroButton:"Explorar Clubes",featuredClubs:"Clubes Destacados",allClubs:"Todos los Clubes",clubDetailsTitle:"Detalles del Club",clubDetailsDefault:"Selecciona un club desde Inicio o Todos los Clubes para ver la información completa.",contactTitle:"Contáctanos",contactName:"Nombre",contactEmail:"Correo",contactMessage:"Mensaje",contactButton:"Enviar",contactSuccess:"¡Mensaje enviado con éxito!",searchPlaceholder:"Buscar un club..."}
 };
 
-// ========= Club Data =========
-// Add all 12 clubs fully here as objects with name, president, description, objectives[], teams[], activities[], image, featured
+
 const clubsData = [
 {
   name: " Technology and AI Club",
@@ -616,7 +605,6 @@ const clubsData = [
 ];
 
 
-// ========= DOM Elements 
 const pages = document.querySelectorAll('.page-section');
 const navLinks = document.querySelectorAll('.nav-links a');
 const featuredContainer = document.getElementById('featured-clubs-container');
@@ -626,7 +614,6 @@ const mobileMenu = document.getElementById('mobile-menu');
 const navList = document.getElementById('nav-links');
 const clubDetails = document.getElementById('clubDetails');
 
-// ========= Navigation =========
 function navigate(pageId){
 pages.forEach(p=>p.classList.remove('active'));
 navLinks.forEach(l=>l.classList.remove('active'));
@@ -655,7 +642,6 @@ function navigate(pageId) {
 
 
 
-// ========= Render Clubs =========
 function renderClubs(filter=''){
 featuredContainer.innerHTML=''; allClubsContainer.innerHTML='';
 const f = filter.toLowerCase();
@@ -678,13 +664,11 @@ const colors = ["#f9fafb", "#003366", "#F0E68C", "#e6f7ff", "#ffe6f0", "#FCA311"
 let colorIndex = 0;
 
 bgButton.addEventListener('click', () => {
-  // Cycle through colors
   document.body.style.backgroundColor = colors[colorIndex];
   colorIndex = (colorIndex + 1) % colors.length;
 });
 
 
-// ========= Show Club Info =========
 function showClubInfo(name) {
   const club = clubsData.find(c => c.name === name);
   if(!club) return;
@@ -720,7 +704,6 @@ function showClubInfo(name) {
   navigate('club-info');
 }
 
-// ========= Switch Language ==========
 function switchLang(lang){
 document.body.setAttribute('data-lang', lang);
 document.querySelectorAll('[data-text-key]').forEach(el=>{
@@ -733,7 +716,6 @@ if(translations[lang][key]) el.placeholder = translations[lang][key];
 });
 }
 
-// ========= Init =========
 document.addEventListener('DOMContentLoaded',()=>{
 renderClubs();
 switchLang('ENG');
